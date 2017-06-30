@@ -5,11 +5,15 @@ public class RestResult<T> {
     private String msg;
     private T data;
 
+    public RestResult() {
+    }
+
     public RestResult(int code, String msg) {
         this(code, msg, null);
     }
 
     public RestResult(int code, String msg, T data) {
+        this();
         this.code = code;
         this.msg = msg;
         if (null != data) {
@@ -21,7 +25,7 @@ public class RestResult<T> {
         return code;
     }
 
-    public void setcode(int ret) {
+    public void setCode(int ret) {
         this.code = ret;
     }
 

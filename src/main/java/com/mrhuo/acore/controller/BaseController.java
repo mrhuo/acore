@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 public class BaseController {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    protected RestResult noLoginResult() {
+    protected RestResult permissionDeniedResult() {
         return new RestResult(401, "PERMISSION DENIED");
     }
 
@@ -17,5 +17,9 @@ public class BaseController {
 
     protected RestResult<Object> okResult() {
         return okResult(null);
+    }
+
+    protected RestResult errorResult(int code, String msg) {
+        return new RestResult(code, msg);
     }
 }
